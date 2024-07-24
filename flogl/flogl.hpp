@@ -4,11 +4,12 @@
 #include "platform.h"
 #include "FastLED.h"
 #include "Config.hpp"
+#include <unistd.h>
 
 namespace flogl {
 
 struct LED{
-   LED(float x, float y, float z, float size = 0.5):
+   LED(float x, float y, float z, float size = 10.0):
          x(x), y(y), z(z),
          size(size),
          color(NULL)
@@ -24,7 +25,10 @@ class Flogl
 public:
    Flogl(std::vector<LED>& led_coordinates, const Config& config = Config());
 
-   bool draw();
+   int draw();
+
+   void delay(unsigned int ms);
+   void show();
    
    ~Flogl();
 private:

@@ -1,7 +1,12 @@
 # FindFastLED - attempts to locate the FastLED sources
+include(CMakePrintHelpers)
 
+cmake_print_variables(FASTLED_DIR)
 find_path(FastLED_BASE "src/FastLED.h"
           PATHS "${FASTLED_DIR}")
+
+cmake_print_variables(FastLED_BASE)
+
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(FastLED DEFAULT_MSG FastLED_BASE)
